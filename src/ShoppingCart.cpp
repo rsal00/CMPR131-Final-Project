@@ -28,9 +28,10 @@ void ShoppingCart::removeItem(string item)
 
 void ShoppingCart::listItems() const
 {
+    int count = 1;
     for (string i : cart)
     {
-        cout << i << endl;
+        cout << "Item " << count++ << ": " << i << endl;
     }
 }
 
