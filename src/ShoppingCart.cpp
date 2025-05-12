@@ -58,7 +58,7 @@ bool ShoppingCart::checkCase()
 
 int ShoppingCart::getNumOfItems() const
 {
-
+    return cart.size();
 }
 
 ostream& operator<<(ostream& out, const ShoppingCart& myCart)
