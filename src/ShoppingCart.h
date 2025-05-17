@@ -1,8 +1,22 @@
 #ifndef SHOPPINGCART_H
-#define SHOPPINGCAR_H
+#define SHOPPINGCART_H
 
 #include <set>
 using namespace std;
+
+struct Item
+{
+    string name;
+    double price;
+    Item() : name(""), price(0.0) {}
+    Item(string n) : name(n), price(0.0) {}
+    Item(string n, double p) : name(n), price(p) {}
+
+    bool operator<(const Item& other) const
+    {
+        return name < other.name;
+    }
+};
 
 class ShoppingCart
 {
@@ -11,20 +25,23 @@ public:
     ~ShoppingCart();
     ShoppingCart(const ShoppingCart& other);
 
-    void addItem(string item);
+    void addItem();
     void removeItem(string item);
     void listItems() const;
     void clearCart();
     void saveCart();
 
-    bool checkCase();
+    double sumPrices();
+
+    bool checkCase(string cName);
     int getNumOfItems() const;
 
     friend ostream& operator<<(ostream& out, const ShoppingCart& myCart);
-    ShoppingCart& operator=(const ShoppingCart& rhs);
 
 private:
-    set<string> cart;
+    set<Item> cart;
+
+    Item createItem();
 };
 
 #endif
