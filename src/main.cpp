@@ -5,10 +5,61 @@ using namespace std;
 int main()
 {
     ShoppingCart cart;
-    cart.addItem();
-    cart.addItem();
+    char choice;
 
-    cout << cart.sumPrices() << endl;
+    while (choice != 'x')
+        {
+            cout << "1) Add item to your cart\n";
+            cout << "2) Display your cart\n";
+            cout << "3) Remove item from you cart\n";
+            cout << "4) Clear your cart\n";
+            cout << "5) Save cart\n";
+            cout << "6) See the number of items in your cart\n";
+            cout << "x) Exit\n";
+
+            cout << "Choose an option: ";
+            cin >> choice;
+
+            string item;
+            switch (choice)
+            {
+                case '1':
+                    cart.addItem();
+                    break;
+                case '2':
+                    cout << endl;
+                    cout << cart;
+                    cout << endl;
+                    break;
+                case '3':
+                    cout << "What item do you want to remove?: ";
+                    cin >> item;
+                    cout << endl;
+                    cart.removeItem(item);
+                    cout << endl;
+                    break;
+                case '4':
+                    cout << endl;
+                    cart.clearCart();
+                    cout << endl;
+                    break;
+                case '5':
+                    cout << endl;
+                    cart.saveCart();
+                    cout << endl;
+                    break;
+                case '6':
+                    cout << endl;
+                    cout << "Number of items in cart: " << cart.getNumOfItems() << endl << endl;
+                    break;
+                case 'x':
+                    break;
+                default:
+                    cout << endl;
+                    cout << "Invalid input!\n";
+                    break;
+            }
+        }
 
     return 0;
 }
