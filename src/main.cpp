@@ -15,6 +15,7 @@ int main()
             cout << "4) Clear your cart\n";
             cout << "5) Save cart\n";
             cout << "6) See the number of items in your cart\n";
+            cout << "7) See total price\n";
             cout << "x) Exit\n";
 
             cout << "Choose an option: ";
@@ -51,6 +52,10 @@ int main()
                 case '6':
                     cout << endl;
                     cout << "Number of items in cart: " << cart.getNumOfItems() << endl << endl;
+                    break;
+                case '7':
+                    cout << endl;
+                    cout << "Total Price: " << cart.sumPrices() << endl << endl;
                     break;
                 case 'x':
                     break;
