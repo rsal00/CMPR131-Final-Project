@@ -1,5 +1,17 @@
+/*
+    Ruben Salazar
+    CMPR 131
+    May 8, 2025
+
+    Final Project
+
+    Collaboration:
+    None
+*/
+
 #include "ShoppingCart.h"
 #include <iostream>
+#include <fstream>
 
 ShoppingCart::ShoppingCart()
 {
@@ -77,7 +89,21 @@ void ShoppingCart::clearCart()
 
 void ShoppingCart::saveCart()
 {
+    // Create an output stream
+    ofstream file;
+    file.open("Shopping Cart.txt"); // Name the text file
 
+    // If the file is open, write to it
+    if (file.is_open())
+    {
+        file << *this; // using the overloaded insertion operator and dereferencing the current object
+        file.close();
+        cout << "Successfully saved!" << endl;
+    }
+    else // Error checking if the file never opened
+    {
+        cerr << "Failed to write!" << endl;
+    }
 }
 
 double ShoppingCart::sumPrices()
