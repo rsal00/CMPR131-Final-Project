@@ -1,3 +1,14 @@
+/*
+    Ruben Salazar
+    CMPR 131
+    May 8, 2025
+
+    Final Project
+
+    Collaboration:
+    None
+*/
+
 #ifndef SHOPPINGCART_H
 #define SHOPPINGCART_H
 
