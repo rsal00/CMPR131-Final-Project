@@ -1,3 +1,14 @@
+/*
+    Ruben Salazar
+    CMPR 131
+    May 8, 2025
+
+    Final Project
+
+    Collaboration:
+    None
+*/
+
 #include <iostream>
 #include "ShoppingCart.h"
 using namespace std;
