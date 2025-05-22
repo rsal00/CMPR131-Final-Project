@@ -6,7 +6,7 @@
     Final Project
 
     Collaboration:
-    None
+    Bao
 */
 
 #include <iostream>
@@ -33,11 +33,15 @@ int main()
             cout << "Choose an option: ";
             cin >> choice;
 
-            string item;
+            //string item;
             switch (choice)
             {
                 case '1':
-                    cart.addItem();
+                    //cart.addItem();
+                    string name  = inputString("Enter item name : ", true)<< '\n';
+                    double price = inputDouble("Enter item price: $", true)<< '\n';
+
+                    cart.addItem(name, price);
                     break;
                 case '2':
                     cout << endl;
@@ -45,11 +49,11 @@ int main()
                     cout << endl;
                     break;
                 case '3':
-                    cout << "What item do you want to remove?: ";
+                    /*cout << "What item do you want to remove?: ";
                     cin >> item;
                     cout << endl;
                     cart.removeItem(item);
-                    cout << endl;
+                    cout << endl;*/
 
                     string item = inputString("What item do you want to remove? ", true) << '\n';
                     cart.removeItem(item);
