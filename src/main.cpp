@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "ShoppingCart.h"
+#include "input.h"
 using namespace std;
 
 int main()
@@ -49,6 +50,9 @@ int main()
                     cout << endl;
                     cart.removeItem(item);
                     cout << endl;
+
+                    string item = inputString("What item do you want to remove? ", true) << '\n';
+                    cart.removeItem(item);
                     break;
                 case '4':
                     cout << endl;
