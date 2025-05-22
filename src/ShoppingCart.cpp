@@ -159,7 +159,7 @@ ostream& operator<<(ostream& out, const ShoppingCart& myCart)
 {
     if (myCart.cart.empty())
     {
-        cout << "Cart is empty!" << endl;
+        out << "Cart is empty!" << endl;
         return out;
     }
 
