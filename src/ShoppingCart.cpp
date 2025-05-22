@@ -27,7 +27,7 @@ ShoppingCart::ShoppingCart(const ShoppingCart& other)
     cart = other.cart;
 }
 
-void ShoppingCart::addItem()
+/*void ShoppingCart::addItem()
 {
     cart.insert(createItem());
 }
@@ -48,6 +48,22 @@ Item ShoppingCart::createItem()
     }
 
     return Item(userItem, userPrice);
+}*/
+void ShoppingCart::addItem(const Item& newItem)
+{
+    //Duplicate guard
+    if (checkCase(newItem.name)) {
+        cout << "Item already in cart!\n\n";
+        return;
+    }
+    //Insert
+    auto inserted = cart.insert(newItem);
+    //Out
+    if (inserted.second)
+        cout << "Added " << newItem.name
+             << " ($" << newItem.price << ") successfully.\n\n";
+    else
+        cout << "Failed to add item.\n\n";
 }
 
 void ShoppingCart::removeItem(string item)
