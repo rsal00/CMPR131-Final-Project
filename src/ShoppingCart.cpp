@@ -27,38 +27,6 @@ ShoppingCart::ShoppingCart(const ShoppingCart& other)
     cart = other.cart;
 }
 
-/*void ShoppingCart::addItem()
-{
-    Item item;
-    bool put;
-    createItem(item, put);
-    if (put)
-    {
-        cart.insert(item);
-    }
-}
-
-void ShoppingCart::createItem(Item& item, bool& put)
-{
-    string userItem;
-    double userPrice;
-    cout << "Enter the name of item " << (cart.size() + 1) << ": ";
-    cin >> userItem;
-    cout << "Enter the price of item " << (cart.size() + 1) << ": ";
-    cin >> userPrice;
-    cout << endl;
-
-    if (checkCase(userItem))
-    {
-        cout << "Error adding item!" << endl;
-        put = false;
-        return;
-    }
-
-    item.name = userItem;
-    item.price = userPrice;
-    put = true;
-}*/
 void ShoppingCart::addItem(const Item& newItem)
 {
     //Duplicate guard
