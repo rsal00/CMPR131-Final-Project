@@ -29,10 +29,16 @@ ShoppingCart::ShoppingCart(const ShoppingCart& other)
 
 /*void ShoppingCart::addItem()
 {
-    cart.insert(createItem());
+    Item item;
+    bool put;
+    createItem(item, put);
+    if (put)
+    {
+        cart.insert(item);
+    }
 }
 
-Item ShoppingCart::createItem()
+void ShoppingCart::createItem(Item& item, bool& put)
 {
     string userItem;
     double userPrice;
@@ -44,10 +50,14 @@ Item ShoppingCart::createItem()
 
     if (checkCase(userItem))
     {
-        return Item();
+        cout << "Error adding item!" << endl;
+        put = false;
+        return;
     }
 
-    return Item(userItem, userPrice);
+    item.name = userItem;
+    item.price = userPrice;
+    put = true;
 }*/
 void ShoppingCart::addItem(const Item& newItem)
 {
@@ -69,7 +79,7 @@ void ShoppingCart::addItem(const Item& newItem)
 void ShoppingCart::removeItem(string item)
 {
     Item temp(item);
-    auto key = cart.find(temp);
+    set<Item>::iterator key = cart.find(temp);
 
     if (key != cart.end())
     {
@@ -85,10 +95,17 @@ void ShoppingCart::removeItem(string item)
 
 void ShoppingCart::listItems() const
 {
+    if (cart.empty())
+    {
+        cout << "Cart is empty!" << endl;
+        return;
+    }
+
     int count = 1;
     for (auto i : cart)
     {
-        cout << "Item " << count++ << ": " << i.name << endl;
+        cout << "Item " << count << " Name: " << i.name << endl;
+        cout << "Item " << count++ << " Price: " << i.price << endl << endl;
     }
 }
 
