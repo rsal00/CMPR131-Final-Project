@@ -52,7 +52,7 @@ public:
 private:
     set<Item> cart;
 
-    Item createItem();
+    void createItem(Item& item, bool& put)
 };
 
 #endif
